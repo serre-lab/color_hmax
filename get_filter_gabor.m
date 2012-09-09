@@ -1,5 +1,7 @@
 function [gabor,filter_gabor] = get_filter_gabor(size_f,rot, div,numChannel,numPhase)
 % modified from Thomas Serre's Gabor filters used in standard HMAX model
+% Author: Jun Zhang & Youssef Barhomi
+
 
 %%
 lambda = size_f*2/div; %wavelength
