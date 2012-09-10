@@ -33,7 +33,7 @@ demoDoRelease: DOHmax
 
 
 dataset: soccer team dataset (color-predominant)
-There are 7 classes and 40 images for each class.
+There are 7 classes and 40 images for each class, divided into 25 training and 15 testing images per class.
 It was originally used in:
 van de Weijer, J., Schmid, C.: Coloring local feature extraction. In: European
 Conference on Computer Vision. (2006) 334-348
