@@ -9,7 +9,7 @@ Edward H. Adelson and James R. Bergen, "Spatiotemporal energy models for the per
 
 
 We provided two examples:
-1. additive color used in Zhang et al.2012
+1. additive color image used in Zhang et al.2012
 
 2. blue-sky image:
 a representative color image to show how color descriptors work
@@ -33,10 +33,13 @@ demoDoRelease: DOHmax
 
 
 dataset: soccer team dataset (color-predominant)
-There are 7 classes and 40 images for each class, divided into 25 training and 15 testing images per class.
-It was originally used in:
+There are 7 classes and 40 images for each class, divided into 25 training and 15 testing images per class
+datasplits: three random splits of images
+
+This dataset was originally used in:
 van de Weijer, J., Schmid, C.: Coloring local feature extraction. In: European
 Conference on Computer Vision. (2006) 334-348
+
 
 
 
