@@ -39,18 +39,8 @@ Conference on Computer Vision. (2006) 334-348
 
 
 
-
 c1 prototypes:  randomly extracted from 250 patches of 4 patch sizes (1000 patches in total)
------------------------------------------------
-We provide three set of C1 prototypes:
-1. dict_250_patches_4_sizes.mat
-grayscale mode
 
-2. dictSo_250_patches_4_sizes.mat
-Single-Opponent mode
-
-3. dictDo_250_patches_4_sizes.mat
-Double-Opponent mode
 
 
 
