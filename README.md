@@ -33,10 +33,7 @@ demoDoRelease: DOHmax
 
 
 dataset: soccer team dataset (color-predominant)
-There are 7 classes and 40 images for each class, divided into 25 training and 15 testing images per class
-datasplits: three random splits of images
-
-This dataset was originally used in:
+The dataset consists of 280 images falling into 7 classes, and was originally introduced in:
 van de Weijer, J., Schmid, C.: Coloring local feature extraction. In: European
 Conference on Computer Vision. (2006) 334-348
 
