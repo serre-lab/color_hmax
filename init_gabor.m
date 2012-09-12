@@ -4,7 +4,7 @@ function [fSiz,filters,c1OL,numSimpleFilters] = init_gabor(rot, RF_siz, Div)
 % Feb. 2003
 
 c1OL             = 2;
-numFilterSizes   = length(RF_siz
+numFilterSizes   = length(RF_siz);
 numSimpleFilters = length(rot);
 numFilters       = numFilterSizes*numSimpleFilters;
 fSiz             = zeros(numFilters,1);	

@@ -2,8 +2,8 @@ function [c2,s2,c1] = C2So(stim,filters,fSiz,c1SpaceSS,c1ScaleSS,c1OL,s2Target,n
 % given an image extracts layers s1 c1 s2 and finally c2
 % for inputs stim, filters, fSiz, c1SpaceSS,c1ScaleeSS, and c1OL
 %
-% briefly, 
-% stim is the input image. 
+% briefly,
+% stim is the input image.
 % filters fSiz, c1SpaceSS, c1ScaleSS, c1OL are the parameters of
 % the c1 process
 %
@@ -18,7 +18,7 @@ function [c2,s2,c1] = C2So(stim,filters,fSiz,c1SpaceSS,c1ScaleSS,c1OL,s2Target,n
 
 
 if nargin<10
-    [c1,s1] = C1So(stim, filters, fSiz, c1SpaceSS, c1ScaleSS, c1OL,numChannel,numPhases);
+    c1 = C1So(stim, filters, fSiz, c1SpaceSS, c1ScaleSS, c1OL,numChannel,numPhases);
 end
 
 nbands = length(c1);
@@ -31,31 +31,29 @@ L = size(s2Target,1) / (nfilts1*nfilts2*nfilts3);
 PatchSize = [L^.5,L^.5,nfilts1,nfilts2,nfilts3];
 
 
-%%-------------------------------------------------------------------------
+%% -------------------------------------------------------------------------
 % Build s2so: for all prototypes in s2Target (RBF centers) for all bands
 % calculate the image response
 % -------------------------------------------------------------------------
 s2 = cell(n_rbf_centers,1);
-
 for iCenter = 1:n_rbf_centers
-  Patch = reshape(s2Target(:,iCenter),PatchSize);
-  s2{iCenter} = cell(nbands,1);
-  for iBand = 1:nbands
-     s2{iCenter}{iBand} = WindowedSoPatchDistance(c1BandImage{iBand},Patch);  
-  end
+    Patch = reshape(s2Target(:,iCenter),PatchSize);
+    s2{iCenter} = cell(nbands,1);
+    for iBand = 1:nbands
+        s2{iCenter}{iBand} = WindowedSoPatchDistance(c1BandImage{iBand},Patch);
+    end
 end
 
 
-%%-------------------------------------------------------------------------
-% Build c2so: calculate minimum distance (maximum stimulation) across position 
+%% -------------------------------------------------------------------------
+% Build c2so: calculate minimum distance (maximum stimulation) across position
 % and scales
 % -------------------------------------------------------------------------
-
 c2 = inf(n_rbf_centers,1);
 for iCenter = 1:n_rbf_centers
-  for iBand = 1:nbands
-     c2(iCenter) = min(c2(iCenter),min(min(s2{iCenter}{iBand})));
-  end
+    for iBand = 1:nbands
+        c2(iCenter) = min(c2(iCenter),min(min(s2{iCenter}{iBand})));
+    end
 end
 
 

@@ -2,7 +2,7 @@ function s = computeSOhmax(im,filter,numChannel,numOrient)
 
 [h_i,w_i,dim] = size(im);
 
-s = zeros(h_i,w_i,numChannel,numOrien);
+s = zeros(h_i,w_i,numChannel,numOrient);
 
 for jj = 1:numChannel
     for ii = 1:numOrient

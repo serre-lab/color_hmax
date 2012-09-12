@@ -8,6 +8,7 @@ function D = WindowedDoPatchDistance(Im,Patch)
 %
 % Im and Patch must have the same number of channels
 %
+
 dIm = size(Im,3);
 dPatch = size(Im,3);
 if(dIm ~= dPatch)
@@ -16,7 +17,7 @@ end
 d = size(Patch);
 dimm = d(4);
 
-Psqr = sum(sum(sum(sum(Patch.^2))));;
+Psqr = sum(sum(sum(sum(Patch.^2))));
 Imsq = Im.^2;
 Imsq = sum(sum(Imsq,4),3);
 sum_support = [ceil(d(2)/2)-1,ceil(d(1)/2)-1,floor(d(2)/2),floor(d(1)/2)];

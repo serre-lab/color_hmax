@@ -1,14 +1,12 @@
-function [c1,ds] = C1Do(stim, gfilters, cfilters, fSiz, c1SpaceSS, c1ScaleSS, c1OL,numChannel,numPhases)
+function [c1,dc] = C1Do(stim, gfilters, cfilters, fSiz, c1SpaceSS, c1ScaleSS, c1OL,numChannel,numPhases)
 % For more information about S1/C1 unit, refer to Thomas Serre's Matlab
 % code for standard Hmax
 
-USECONV2 = 1; %should be faster if 1
 % normalization params
 k = 1; % scaling factor
 sigma = 0.225; %semi-contrast constant
 
 
-USE_NORMXCORR_INSTEAD = 0;
 if(nargin < 10)
     INCLUDEBORDERS = 0;
 end
@@ -17,6 +15,7 @@ numScales=c1ScaleSS(end)-1;
 %   last index in scaleSS contains scale index where next band would start, i.e., 1 after highest scale!!
 numSimpleFilters = floor(length(fSiz)/numScales/numChannel);
 
+ScalesInThisBand = cell(1,numScaleBands);
 for iBand = 1:numScaleBands
     ScalesInThisBand{iBand} = c1ScaleSS(iBand):(c1ScaleSS(iBand+1) -1);
 end
@@ -24,22 +23,19 @@ end
 
 
 
-%% ------------------------------------------------------------------------
+%% --------------------------------------------------------------
 %                Calculate all filter responses (s1)
 % -------------------------------------------------------------------------
-sqim = stim.^2;
-iUFilterIndex = 0;
-uFiltSizes = unique(fSiz);
-
+s1 = {};
 for iBand = 1:numScaleBands
     for iScale = 1:length(ScalesInThisBand{iBand})
         sc = (iBand-1)*length(ScalesInThisBand{iBand}) + iScale;
         
-         % -----------Compute Single-Opponency--------------------------
+         % -----------Compute Single-Opponency----------%
         for iPhase = 1:numPhases
              iUFilterIndex = 0;
              
-             s1{iBand}{iScale}(:,:,:,:,iPhase) = computeSOhmax(stim,cfilters{sc}{iPhase},numChannel,numSimpleFilters);%double opponent simple cell
+             s1{iBand}{iScale}(:,:,:,:,iPhase) = computeSOhmax(stim,cfilters{sc}{iPhase},numChannel,numSimpleFilters);%SOS1 unit
           
             if(~INCLUDEBORDERS)   
                   for jj=1:numChannel
@@ -53,14 +49,14 @@ for iBand = 1:numScaleBands
             
         end
       
-        % --------Divisive normalization over orientations----------------
+        % --------Divisive normalization over orientations---------%
         % Note: this is different from normalization used for computing SO
         % descriptors
         s1{iBand}{iScale} = divNorm_do(s1{iBand}{iScale},k,sigma,numSimpleFilters);
         
         
         
-        % -----------Compute Double-Opponency--------------------------
+        % -----------Compute Double-Opponency----------------%
         % ds: Double-Opponent simple cell(DOS1)
         % dc: Double-Opponnet complex cell(DOC1)
         % gfilters is used at the DO stage is the same as the one used at the SO
@@ -69,13 +65,13 @@ for iBand = 1:numScaleBands
         
         tmpdc = zeros(size(stim,1),size(stim,2),numChannel,numSimpleFilters);
         for iPhase = 1:numPhases
-            % DOS1 units
+            % DOS1 unit
             ds = computeDOS1hmax(s1{iBand}{iScale}(:,:,:,:,iPhase),gfilters{sc}{1},numChannel,numSimpleFilters);
-            % DOC1 units
+            % DOC1 unit
             tmpdc =  tmpdc + ds ./ numPhases;
         end
         
-        % yield invariance to gure-ground reversal.
+        % yield invariance to figure-ground reversal
         for jj = 1:numChannel/2
             dc{iBand}{iScale}(:,:,jj,:) = sqrt(tmpdc(:,:,jj,:).^2 + tmpdc(:,:,jj+numChannel/2,:).^2);
         end
@@ -87,12 +83,11 @@ end
 
 
 
-%% ------------------------------------------------------------------------
-% Calculate local pooling (c1)
+%% ---------------------------------------------------------------
+%                      Calculate local pooling (DOC1 units)
 % -------------------------------------------------------------------------
 
 %   (1) pool over scales within band
-
 c1 = {};
 for iBand = 1:numScaleBands
     for jj=1:numChannel/2
