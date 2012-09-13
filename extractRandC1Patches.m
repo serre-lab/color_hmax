@@ -16,11 +16,11 @@ end
 
 nImages = length(cItrainingOnly);
 %----Settings for Training the random patches--------%
-rot = [90 -45 0 45];
+rot = [0 90];
 c1ScaleSS = [1 3];
 RF_siz    = [11 13];
-c1SpaceSS = [10];
-div = [4:-.05:3.2];
+c1SpaceSS = 10;
+div = 4:-.05:3.2;
 Div       = div(3:4);
 %--- END Settings for Training the random patches--------%
 

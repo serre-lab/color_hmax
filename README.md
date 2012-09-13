@@ -27,8 +27,8 @@ Serre, T., Wolf, L., Bileschi, S.M., Riesenhuber, M., Poggio, T.: Robust object
 recognition with cortex-like mechanisms. IEEE Transactions on Pattern Analysis
 and Machine Intelligence 29 (2007) 411-426
 
-demoRelease: grayscale Hmax
-demoSoRelease: SOHmax
+demoRelease  : grayscale Hmax
+demoSoRelease: SOHmax (For most cases, two orientations of SO is sufficient due to the weekly oriented property)
 demoDoRelease: DOHmax
 
 
@@ -41,8 +41,7 @@ Conference on Computer Vision. (2006) 334-348
 
 c1 prototypes:  randomly extracted from 250 patches of 4 patch sizes (1000 patches in total)
 
-
-
-
-
-
+We provided three types of C1 patches:
+dict_250_patches_4_sizes  : grayscale 
+dictSo_250_patches_4_sizes: SO
+dictDo_250_patches_4_sizes: DO
