@@ -39,7 +39,7 @@ for i = 1:nImages
     for j = 1:numPatchSizes, %for every unique patch size
         
         if isempty(c1),  %compute C2So
-            [tmpC2,~,c1] = C2So(stim, filters,fSiz,c1SpaceSS,c1ScaleSS,c1OL,cPatches{j},numChannel,numPhases);
+            [tmpC2,~,tmpC1] = C2So(stim, filters,fSiz,c1SpaceSS,c1ScaleSS,c1OL,cPatches{j},numChannel,numPhases);
         else
             [tmpC2] = C2So(stim, filters,fSiz,c1SpaceSS,c1ScaleSS,c1OL,cPatches{j},c1,numChannel,numPhases);
         end
