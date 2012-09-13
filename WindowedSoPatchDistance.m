@@ -20,7 +20,7 @@ Psqr = sum(sum(sum(sum(sum(Patch.^2)))));
 Imsq = Im.^2;
 
 % check the number of phases
-if  d5 ~= 1
+if  d(5) ~= 1
     Imsq = sum(sum(sum(Imsq,5),4),3);
 else
     Imsq = sum(sum(Imsq,4),3);
