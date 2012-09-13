@@ -9,9 +9,6 @@ function  C2res = demoDoRelease(cI)
 % If you find any bugs, please contact with Jun Zhang(zhangjun1126@gmail.com)
 
 
-cI = load('cI.mat');
-cI = cI.cI;
-
 outDir = sprintf('../results');
 if ~exist(outDir,'dir')
     mkdir(outDir);
@@ -68,7 +65,7 @@ Div       = div;
 
 fprintf(1,'Initializing color gabor filters -- full set...');
 %creates the gabor filters use to extract the S1 layer
-[fSiz,gfilters,~,cfilters,c1OL,numOrients] = init_color_gabor(rot, RF_siz, Div,numChannel,numPhases);
+[fSiz,gfilters,cfilters,c1OL,numOrients] = init_color_gabor(rot, RF_siz, Div,numChannel,numPhases);
 fprintf(1,'done\n');
 
 
