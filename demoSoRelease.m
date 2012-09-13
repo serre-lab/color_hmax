@@ -9,6 +9,10 @@ function  C2res = demoSoRelease(cI)
 % If you find any bugs, please contact with Jun Zhang(zhangjun1126@gmail.com)
 
 
+cI = load('cI.mat');
+cI = cI.cI;
+
+
 outDir = sprintf('../results');
 if ~exist(outDir,'dir')
     mkdir(outDir);

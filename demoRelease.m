@@ -6,6 +6,7 @@ function  C2res = demoRelease(cI)
 % More details please refer to Serre et al.2007
 
 
+
 % creat a directory to store the results
 outDir = sprintf('../results');
 if ~exist(outDir,'dir')

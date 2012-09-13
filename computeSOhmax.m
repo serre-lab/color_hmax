@@ -8,7 +8,7 @@ for jj = 1:numChannel
     for ii = 1:numOrient
         
         for kk=1:dim
-            tmp = conv2padded(im(:,:,kk), squeeze(filter{pp}(:,:,kk,jj,ii)));                  
+            tmp = conv2padded(im(:,:,kk), squeeze(filter(:,:,kk,jj,ii)));                  
             s(:,:,jj,ii) = s(:,:,jj,ii) + tmp;%e.g. +R-center,-G-surround...
         end
         

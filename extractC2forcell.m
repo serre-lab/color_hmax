@@ -31,7 +31,7 @@ mC2 = [];
 for i = 1:length(cImages), %for every input image
     fprintf(1,'%d:',i);
     stim = cImages{i};
-    %   [m,n,unused] = size(stim);
+    [~,~,unused] = size(stim);
     if unused ~= 1;
         stim = rgb2gray(stim);
     end
