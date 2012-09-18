@@ -39,7 +39,7 @@ sigma = 0.225; %semi-contrast constant
 %                      load and pre-processing images
 %--------------------------------------------------------------------------
 im = imread(img_path);
-im = imresize(im,0.8);%reduce image size if needed.
+% im = imresize(im,0.8);%reduce image size if needed.
 if max(im(:))>1
     imscr = double(im)/255;
 else

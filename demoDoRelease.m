@@ -6,7 +6,7 @@ function  C2res = demoDoRelease(cI)
 % See details to compute DO descriptors in DODescriptor.m
 % You could mofify your spatial info., such as number of phases,
 % orientations to adapt to your task
-% If you find any bugs, please contact with Jun Zhang(zhangjun1126@gmail.com)
+% If you find any bugs, please contact Jun Zhang(zhangjun1126@gmail.com)
 
 
 outDir = sprintf('../results');
@@ -24,7 +24,7 @@ READPATCHESFROMFILE = 1;
 patchSizes = [4 8 12 16];
 numPatchSizes = length(patchSizes);
 numPatchesPerSize = 250;
-numPhases = 2;
+numPhases = 1;
 numChannel = 8; %numbers of opponent color channels
 % C(cyan) = G+B, Y(yellow) = R+G
 % numChannel=8, R+/G-,G+/R-,R+/C-,C+/R-,Y+/B-/B+/Y-,Wh,Bl;
