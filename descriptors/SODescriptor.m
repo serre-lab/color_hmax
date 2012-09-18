@@ -81,7 +81,7 @@ count = 0;
 for kk = 1:3
     for jj = 1:numChannel
         count = count + 1;
-        subplot(3,numChannel,count); imagesc(colorfilter{pp}(:,:,kk,jj,ii)); 
+        subplot(3,numChannel,count); imagesc(cfilters{pp}(:,:,kk,jj,ii)); 
         axis image; axis off; 
         colormap gray;
     end
