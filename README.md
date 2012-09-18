@@ -4,7 +4,7 @@
 SODescriptor/DODescriptor: to compute SO/DO descriptors
 
 energyRes: to compute energy response inspired from :
-Edward H. Adelson and James R. Bergen, "Spatiotemporal energy models for the perception of motion," J. Opt. Soc. Am. A 2, 284-299 (1985) 
+Edward H. Adelson and James R. Bergen. Spatiotemporal energy models for the perception of motion. JOSA, 1985
 
 
 
@@ -14,7 +14,7 @@ We provided two examples:
 2. blue-sky image:
 a representative color image to show how color descriptors work
 
-You may need to change the normalization params according to different images.
+You may need to adjust the normalization params according to different images.
 In general, we found k=1, sigma=0.225 would be better for natural images which is constrained  by neural data.
 
 
@@ -25,9 +25,8 @@ In general, we found k=1, sigma=0.225 would be better for natural images which i
 ===============
 
 Hmax model was successfully used in real data, see details in:
-Serre, T., Wolf, L., Bileschi, S.M., Riesenhuber, M., Poggio, T.: Robust object
-recognition with cortex-like mechanisms. IEEE Transactions on Pattern Analysis
-and Machine Intelligence 29 (2007) 411-426
+Serre, T., Wolf, L., Bileschi, S.M., Riesenhuber, M., Poggio, T. Robust object
+recognition with cortex-like mechanisms.TPAMI, 2007.
 
 demoRelease  : grayscale Hmax
 demoSoRelease: SOHmax (For most cases, two orientations of SO is sufficient due to the weekly oriented property)
@@ -36,8 +35,7 @@ demoDoRelease: DOHmax
 
 dataset: soccer team dataset (color-predominant)
 The dataset consists of 280 images falling into 7 classes, and was originally introduced in:
-van de Weijer, J., Schmid, C.: Coloring local feature extraction. In: European
-Conference on Computer Vision. (2006) 334-348
+van de Weijer, J., Schmid, C. Coloring local feature extraction. In: ECCV, 2006.
 
 
 
