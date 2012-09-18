@@ -14,7 +14,7 @@ We provided two examples:
 2. blue-sky image:
 a representative color image to show how color descriptors work
 
-You may need to adjust the normalization params according to different images.
+You may need adjust the normalization params according to different images.
 In general, we found k=1, sigma=0.225 would be better for natural images which is constrained  by neural data.
 
 
