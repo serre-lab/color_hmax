@@ -50,5 +50,12 @@ dictDo_250_patches_4_sizes: DO
 
 
 
+Publication:
+A new biologically inspired color image descriptor.
+Jun Zhang, Youssef Barhomi, and Thomas Serre 
+In Proceedings of the IEEE Conference on European Conference on Computer Vision (ECCV), Florence, Italy, October 2012. 
+
+
+
 For comments or questions, please contact Jun Zhang (zhangjun1126@gmail.com)
 
