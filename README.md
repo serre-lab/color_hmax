@@ -14,9 +14,11 @@ We provided two examples:
 2. blue-sky image:
 a representative color image to show how color descriptors work
 
+You may need to change the normalization params according to different images.
+In general, we found k=1, sigma=0.225 would be better for natural images which is constrained  by neural data.
 
 
-
+---------------------------------------------------------------------------
 
 
 (2) a biologically inspired grayscale/SO/DO Hmax model for object recognition
@@ -45,3 +47,8 @@ We provided three types of C1 patches:
 dict_250_patches_4_sizes  : grayscale 
 dictSo_250_patches_4_sizes: SO
 dictDo_250_patches_4_sizes: DO
+
+
+
+For comments or questions, please contact Jun Zhang (zhangjun1126@gmail.com)
+
