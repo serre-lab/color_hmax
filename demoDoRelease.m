@@ -24,7 +24,7 @@ READPATCHESFROMFILE = 1;
 patchSizes = [4 8 12 16];
 numPatchSizes = length(patchSizes);
 numPatchesPerSize = 250;
-numPhases = 1;
+numPhases = 2;
 numChannel = 8; %numbers of opponent color channels
 % C(cyan) = G+B, Y(yellow) = R+G
 % numChannel=8, R+/G-,G+/R-,R+/C-,C+/R-,Y+/B-/B+/Y-,Wh,Bl;
