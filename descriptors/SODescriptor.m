@@ -1,7 +1,7 @@
 function s = SODescriptor(img_path);
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Color region coding by Singlee-Opponent(SO) descriptors
+% Color region encoding by Single-Opponent(SO) descriptors
 % based on Gabor filters
 % By Jun Zhang, 09/05/2012
 % Email: zhangjun1126@gmail.com

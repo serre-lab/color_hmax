@@ -1,7 +1,7 @@
 function [ds,dc] = DODescriptor(img_path);
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Color boundary/shape coding by Double-Opponent(DO) descriptors
+% Color boundary/shape encoding by Double-Opponent(DO) descriptors
 % based on Gabor filters
 % By Jun Zhang, 09/05/2012
 % Email: zhangjun1126@gmail.com
