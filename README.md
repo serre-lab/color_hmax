@@ -1,5 +1,5 @@
 
-(1) compute Single-Opponent(SO)/Double-Opponent(DO) descriptors and energy mode in grayscale as well
+(1) compute Single-Opponent(SO)/Double-Opponent(DO) descriptors and energy model in grayscale as well
 ===============
 SODescriptor/DODescriptor: to compute SO/DO descriptors
 
