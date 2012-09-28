@@ -15,16 +15,16 @@ sigma  = lambda.*0.8;%effective bandwidth
 G      = 0.3; 
 
 
-filter = GenerateGabor(size_f,length(rot), G,  lambda, sigma, 'normal',pCount); 
+filter = GenerateGabor(size_f,rot, G,  lambda, sigma, 'normal',pCount); 
 % gabor sign: 'normal'-basic gabor; 'positive'/'negative':
 % positive/negative units of gabor
 
 
-function fVals = GenerateGabor(rfCount, fCount, aspectRatio, lambda, sigma, gabor_sign,pCount)                                              
+function fVals = GenerateGabor(rfCount, rot, aspectRatio, lambda, sigma, gabor_sign,pCount)                                              
 
 
 fVals = cell(pCount,1);
-
+fCount = length(rot);
 points = (1 : rfCount) - ((1 + rfCount) / 2);
 
 for p = 1:pCount
@@ -33,7 +33,7 @@ for p = 1:pCount
     
     for f = 1 : fCount
     
-        theta = (f - 1) / fCount * pi;%orients: 0,45,90,135 degrees
+        theta = rot * pi / 180;%orients: 0,45,90,135 degrees
 
 
     for j = 1 : rfCount
