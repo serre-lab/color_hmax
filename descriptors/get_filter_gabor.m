@@ -1,4 +1,4 @@
-function [gfilters,cfilters] = get_filter_gabor(size_f,rot, div,numChannel,numPhase)
+function [gfilters,cfilters] = get_filter_gabor(size_f,rot, div,numChannel,phase)
 % modified from Thomas Serre's Gabor filters used in standard HMAX model
 % (Serre et al.2007)
 % Author: Jun Zhang & Youssef Barhomi
@@ -9,7 +9,7 @@ if nargin < 4
     numPhase = 1;
     numChannel = 8;
 elseif nargin < 5
-    numPhase = 1;
+    phase = 0;
 end
 
 
@@ -19,12 +19,13 @@ G = 0.3; %spatial aspect ratio
 
 
 
-gfilters =  GenerateGabor(size_f,rot, G, lambda, sigma, 'norm', numPhase);
+gfilters =  GenerateGabor(size_f,rot, G, lambda, sigma, 'norm', phase);
 
 % seperate gabor to positive and negative ones
-filter1 = GenerateGabor(size_f, rot, G, lambda, sigma, 'positive', numPhase);
-filter2 = GenerateGabor(size_f, rot, G, lambda, sigma, 'negative', numPhase);
+filter1 = GenerateGabor(size_f, rot, G, lambda, sigma, 'positive', phase);
+filter2 = GenerateGabor(size_f, rot, G, lambda, sigma, 'negative', phase);
 
+numPhase = length(phase);
 filter = cell(numPhase,1);
 for pp = 1:numPhase
     filter{pp}(:,:,1,:) = abs(filter1{pp});
@@ -84,18 +85,20 @@ end
 
 
 
-function fVals = GenerateGabor(rfCount, rot, aspectRatio, lambda, sigma, gabor_sign, pCount)                                              
+function fVals = GenerateGabor(rfCount, rot, aspectRatio, lambda, sigma, gabor_sign, phase)                                              
 
 fCount = length(rot);
+pCount = length(phase);
 fVals = cell(pCount,1);
 points = (1 : rfCount) - ((1 + rfCount) / 2);
 
 for p = 1:pCount
-    phase =  (p - 1) / 2 * pi;
+%     phase =  (p - 1) / 2 * pi;
+    alpha = phase(p) * pi / 180;
     
     for f = 1 : fCount
 %         theta = (f - 1) / fCount * pi;
-        theta = rot * pi / 180;
+        theta = rot(f) * pi / 180;
 
         for j = 1 : rfCount
             for i = 1 : rfCount
@@ -104,7 +107,7 @@ for p = 1:pCount
 
                 if sqrt(x * x + y * y) <= rfCount / 2
                     e = exp(-(x * x + aspectRatio * aspectRatio * y * y) / (2 * sigma * sigma));
-                    e = e * cos(2 * pi * x / lambda + phase);
+                    e = e * cos(2 * pi * x / lambda + alpha);
                 else
                     e = 0;
                 end
