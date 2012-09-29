@@ -23,7 +23,8 @@ numOrient = length(orients);
 div = [4:-.05:3.2];
 Div = div(3);
 RF_siz = 11; % filter size
-numPhase = 2; % numbers of phases
+phase = 0; 
+numPhase = length(phase);
 
 
 
@@ -47,7 +48,7 @@ imscr = rgb2gray(imscr);
 % plausible. Any gradient operators could be used, such as Gaussian 
 % derivatives
 % -------------------------------------------------------------------------
-filters = get_filters(RF_siz,orients,Div,numPhase);
+filters = get_filters(RF_siz,orients,Div,phase);
 
 
 %% ------------------------------------------------------------------------

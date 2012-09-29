@@ -22,7 +22,8 @@ numOrient = length(orients);
 div = [4:-.05:3.2];
 Div = div(3);
 RF_siz = 11; % filter size
-numPhase = 2; % numbers of phases
+phase = [0,90];
+numPhase = length(phase); % numbers of phases
 numChannel = 8; %numbers of opponent color channels
 % C(cyan) = G+B, Y(yellow) = R+G 
 % numChannel=8, R+/G-,G+/R-,R+/C-,C+/R-,Y+/B-/B+/Y-,Wh,Bl; 
@@ -55,7 +56,7 @@ imscr = imscr * 2 -1;
 % plausible. Any gradient operators could be used, such as Gaussian 
 % derivatives
 % -------------------------------------------------------------------------
-[~,cfilters] = get_filter_gabor(RF_siz,orients,Div,numChannel,numPhase);
+[~,cfilters] = get_filter_gabor(RF_siz,orients,Div,numChannel,phase);
 
 
 %% ------------------------------------------------------------------------
