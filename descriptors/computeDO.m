@@ -15,12 +15,15 @@ ds(ds<0) = 0;%rectify
 
 
 % DO complex cells
-dc = zeros(size(s,1),size(s,2),numChannel/2,numOrient,numPhase);
-
-for jj = 1:numChannel/2
-    dc(:,:,jj,:,:) = sqrt(ds(:,:,jj,:,:).^2 + ds(:,:,jj+numChannel/2,:,:).^2);
+tmpdc = zeros(size(s,1),size(s,2),numChannel,numOrient);
+for ii = 1:numPhase
+    tmpdc = tmpdc + ds(:,:,:,:,ii)/numPhase;
 end
 
+dc = zeros(size(s,1),size(s,2),numChannel/2,numOrient);
+for jj = 1:numChannel/2
+    dc(:,:,jj,:) = sqrt(tmpdc(:,:,jj,:).^2 + tmpdc(:,:,jj+numChannel/2,:).^2);
+end
 
 
 return
