@@ -22,7 +22,7 @@ numOrient = length(orients);
 div = [4:-.05:3.2];
 Div = div(3);
 RF_siz = 11; % filter size
-phase = [0,90];
+phase = 0;
 numPhase = length(phase); % numbers of phases
 numChannel = 8; %numbers of opponent color channels
 % C(cyan) = G+B, Y(yellow) = R+G 
@@ -74,21 +74,6 @@ s = divNorm_so(s,k,sigma,numChannel);
 %% ------------------------------------------------------------------------
 %                            visulization
 % -------------------------------------------------------------------------
-% visulize spatio-chromatic filters
-figure;
-ii = 1;% orientation: 90 deg
-pp = 1;% phase: 0 deg
-count = 0;   
-for kk = 1:3
-    for jj = 1:numChannel
-        count = count + 1;
-        subplot(3,numChannel,count); imagesc(cfilters{pp}(:,:,kk,jj,ii)); 
-        axis image; axis off; 
-        colormap gray;
-    end
-end
-
-
 % visulize SOS1 response    
 channelName = {'R^+-G^-','R^+-C^-','Y^+-B^-','Wh','G^+-R^-','C^+-R^-','B^+-Y^-','Bl'};
 figure;

@@ -23,7 +23,7 @@ numOrient = length(orients);
 div = [4:-.05:3.2];
 Div = div(3);
 RF_siz = 11; % filter size
-phase = 0; 
+phase = [0 90]; 
 numPhase = length(phase);
 
 

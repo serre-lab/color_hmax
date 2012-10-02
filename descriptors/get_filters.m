@@ -34,7 +34,7 @@ for p = 1:pCount
     
     for f = 1 : fCount
         
-        theta = rot * pi / 180;%orients: 0,45,90,135 degrees
+        theta = rot(f) * pi / 180;%orients: 0,45,90,135 degrees
         
         
         for j = 1 : rfCount
