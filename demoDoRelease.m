@@ -20,7 +20,7 @@ end
 %% --------------------------------------------------------------
 %           load C1DO prototypes if exsits or extract your own prototypes
 % -------------------------------------------------------------------------
-READPATCHESFROMFILE = 1;
+READPATCHESFROMFILE = 0;
 patchSizes = [4 8 12 16];
 numPatchSizes = length(patchSizes);
 numPatchesPerSize = 250;
