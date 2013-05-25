@@ -1,4 +1,4 @@
-(1) Compute Single-Opponent (SO) / Double-Opponent (DO) descriptors as wells as (grayscale) energy model
+(1) Compute Single-Opponent (SO) / Double-Opponent (DO) descriptors as well as (grayscale) energy model
 ===============
 SODescriptor.m / DODescriptor.m: Compute SO/DO descriptors
 energyRes.m: Compute energy response based on Adelson & Bergen (1985)
