@@ -1,4 +1,4 @@
-(1) Compute Single-Opponent (SO) / Double-Opponent (DO) descriptors as well as (grayscale) energy model
+(1)  Single-Opponent (SO) and Double-Opponent (DO) descriptors
 ===============
 SODescriptor.m / DODescriptor.m: Compute SO/DO descriptors
 energyRes.m: Compute energy response based on Adelson & Bergen (1985)
@@ -12,7 +12,7 @@ In general, we found k = 1, sigma = 0.225 to work well for natural images.
 
 ---------------------------------------------------------------------------
 
-(2) An extension of HMAX model (Serre et al, 2007) to include color information 
+(2) Color HMAX
 ===============
 
 demoRelease.m  : grayscale Hmax
