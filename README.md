@@ -1,19 +1,15 @@
+(1) Compute Single-Opponent (SO) / Double-Opponent (DO) descriptors as wells as (grayscale) energy model
 
-(1) compute Single-Opponent(SO)/Double-Opponent(DO) descriptors and  (grayscale) energy model as well
 ===============
-SODescriptor.m / DODescriptor.m: to compute SO/DO descriptors
+SODescriptor.m / DODescriptor.m: Compute SO/DO descriptors
+energyRes.m: Compute energy response based on Adelson & Bergen (1985)
 
-energyRes.m: to compute energy response inspired from :
-Edward H. Adelson and James R. Bergen. Spatiotemporal energy models for the perception of motion. JOSA, 1985
+We provide two examples to show how color descriptors work:
+1. additive color image used in Zhang et al (2012)
+2. blue-sky image: a representative color image
 
-
-
-We provided two examples to show how color descriptors work:
-1. an additive color image used in Zhang et al.2012
-2. blue-sky image:a representative color image
-
-You may need adjust the normalization params in terms of different images.
-In general, we found k=1, sigma=0.225 would be better for natural images which is constrained by neural data.
+The normalization paramaters may need to be adjusted depending on the type of images.
+In general, we found k = 1, sigma = 0.225 to be better for natural images.
 
 
 
